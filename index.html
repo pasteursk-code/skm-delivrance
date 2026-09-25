@@ -1,51 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#6f1020" />
-<title>SKM DÉLIVRANCE</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6f1020">
+<title>SKM DÉLIVRANCE V2</title>
 <style>
 :root{
-  --b:#6f1020; --b2:#8f1730; --gold:#d6a62d; --cream:#fff8eb; --ink:#27191b; --muted:#76666a;
+  --b:#6f1020; --b2:#8f1730; --gold:#d6a62d; --cream:#fff8eb; --ink:#27191b;
+  --muted:#74656a; --line:#ead9c2; --ok:#2f6f3e;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,#4e0713,#85162b 35%,#f5ead7 35%);color:var(--ink);min-height:100vh}
-.app{max-width:560px;margin:auto;min-height:100vh;background:#fffaf2;box-shadow:0 0 40px #0003}
-header{background:linear-gradient(135deg,#4c0713,#8a162c);color:white;padding:22px 18px 18px;position:sticky;top:0;z-index:2;border-bottom:3px solid var(--gold)}
-.brand{font-family:Georgia,serif;font-size:28px;font-weight:800;letter-spacing:.5px;color:#f2d26c}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,#4c0713,#8a162c 34%,#f3e8d6 34%);
+  color:var(--ink);min-height:100vh
+}
+.app{max-width:620px;margin:auto;min-height:100vh;background:#fffaf2;box-shadow:0 0 40px #0003}
+header{
+  position:sticky;top:0;z-index:5;
+  background:linear-gradient(135deg,#4c0713,#8a162c);color:white;
+  padding:18px 16px 14px;border-bottom:3px solid var(--gold)
+}
+.brand{font:800 27px Georgia,serif;color:#f2d26c}
 .tag{font-size:12px;opacity:.9;margin-top:3px}
-main{padding:18px 16px 100px}
-.card{background:#fff;border:1px solid #ead9c2;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 7px 20px #6b102012}
+.version{
+  display:inline-block;margin-top:9px;background:#fff2;color:#fff;border:1px solid #fff5;
+  padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800
+}
+main{padding:16px 14px 110px}
+section.hidden{display:none!important}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;margin:13px 0;
+  box-shadow:0 7px 20px #6b102012
+}
+.hero{text-align:center;padding:25px 14px}
+.hero .icon{font-size:48px}
 h1,h2,h3{font-family:Georgia,serif}
 h1{font-size:29px;line-height:1.06;margin:8px 0;color:var(--b)}
-h2{font-size:22px;color:var(--b)}
-.hero{text-align:center;padding:28px 12px}
-.chain{font-size:52px}
-.btn{width:100%;border:none;border-radius:14px;padding:15px 18px;margin:8px 0;background:linear-gradient(180deg,#efc554,#b77d08);color:#3c2200;font-size:16px;font-weight:800;cursor:pointer}
+h2{font-size:22px;color:var(--b);margin:4px 0 10px}
+h3{font-size:18px;color:var(--b);margin:18px 0 8px}
+p{line-height:1.48}
+small,.muted{color:var(--muted)}
+.pill{
+  display:inline-block;background:#f9ead0;color:#7a4c00;padding:6px 10px;border-radius:99px;
+  font-size:12px;font-weight:800;margin-bottom:8px
+}
+.btn{
+  width:100%;border:none;border-radius:14px;padding:14px 16px;margin:7px 0;
+  background:linear-gradient(180deg,#efc554,#b77d08);color:#3c2200;
+  font-size:16px;font-weight:800;cursor:pointer
+}
 .btn.secondary{background:#fff;color:var(--b);border:2px solid var(--b)}
-.btn.danger{background:#b30d20;color:#fff}
-.progress{height:8px;background:#eadfd7;border-radius:99px;overflow:hidden}
-.progress>div{height:100%;background:var(--b);width:0}
-.qnum{color:var(--muted);font-size:13px}
-.question{font-size:20px;font-weight:800;margin:10px 0 16px}
-.option{display:block;width:100%;text-align:left;padding:14px;border:1px solid #e4d5ca;background:#fff;border-radius:12px;margin:9px 0;font-size:15px}
+.btn.soft{background:#f8eee8;color:var(--b);border:1px solid #e6cfc2}
+.btn.danger{background:#a20f1f;color:#fff}
+.option{
+  display:block;width:100%;text-align:left;padding:14px 13px;border:1px solid #e4d5ca;
+  background:#fff;border-radius:12px;margin:9px 0;font-size:15px;cursor:pointer
+}
 .option:hover,.option.sel{border:2px solid var(--b);background:#fff1f3}
-.result-row{margin:15px 0}
-.label{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
-.bar{height:10px;background:#eadfd7;border-radius:8px;overflow:hidden;margin-top:6px}
+.option b{color:var(--b)}
+.progress{height:8px;background:#eadfd7;border-radius:99px;overflow:hidden;margin:7px 0 16px}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--b),var(--gold));width:0}
+.qnum{font-size:13px;color:var(--muted)}
+.question{font-size:19px;font-weight:800;line-height:1.35;margin:9px 0 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.result-row{margin:14px 0}
+.label{display:flex;justify-content:space-between;gap:12px;font-weight:700;font-size:14px}
+.bar{height:10px;background:#eadfd7;border-radius:9px;overflow:hidden;margin-top:6px}
 .fill{height:100%;background:linear-gradient(90deg,var(--b),var(--gold))}
-.pill{display:inline-block;background:#f9ead0;color:#7a4c00;padding:6px 10px;border-radius:99px;font-size:12px;font-weight:700}
-blockquote{margin:14px 0;padding:12px 15px;border-left:4px solid var(--gold);background:#fff7e1}
-textarea{width:100%;min-height:110px;border:1px solid #dbcabd;border-radius:12px;padding:12px;font:inherit}
-.hidden{display:none!important}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(560px,100%);background:white;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:3}
-.nav button{background:none;border:none;color:#5e4b4f;font-size:11px;font-weight:700}
-small{color:var(--muted)}
-.day{display:flex;gap:11px;align-items:flex-start;margin:12px 0;padding:12px;border:1px solid #ead9c2;border-radius:14px;background:#fff}
-.badge{min-width:34px;height:34px;border-radius:50%;background:var(--b);color:white;display:grid;place-items:center;font-weight:800}
-.day.done{background:#f4f8ef;border-color:#a9c58e}
-.day button{margin-left:auto;border:1px solid var(--b);background:white;color:var(--b);border-radius:10px;padding:8px 10px;font-weight:700}
+blockquote{margin:13px 0;padding:12px 14px;border-left:4px solid var(--gold);background:#fff7e1;line-height:1.5}
+textarea{
+  width:100%;min-height:120px;border:1px solid #dbcabd;border-radius:12px;padding:12px;
+  font:inherit;background:white
+}
+.day{
+  display:flex;gap:10px;align-items:flex-start;margin:11px 0;padding:12px;border:1px solid var(--line);
+  border-radius:14px;background:#fff
+}
+.day.done{background:#f1f8ef;border-color:#9fbd98}
+.badge{
+  min-width:34px;height:34px;border-radius:50%;background:var(--b);color:#fff;
+  display:grid;place-items:center;font-weight:800
+}
+.day .grow{flex:1}
+.day button{
+  border:1px solid var(--b);background:#fff;color:var(--b);border-radius:9px;padding:7px 8px;font-weight:700
+}
+.alert{
+  border:1px solid #d5b878;background:#fff6dc;border-radius:12px;padding:12px;line-height:1.45
+}
+.success{
+  border:1px solid #a9c6af;background:#f2f8f3;border-radius:12px;padding:12px
+}
+.nav{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:min(620px,100%);background:#fff;border-top:1px solid #ddd;
+  display:grid;grid-template-columns:repeat(5,1fr);
+  padding:8px 3px calc(8px + env(safe-area-inset-bottom));z-index:10
+}
+.nav button{background:none;border:none;color:#5e4b4f;font-size:10px;font-weight:800;padding:6px 2px}
+.nav button span{display:block;font-size:18px;margin-bottom:2px}
+.sep{height:1px;background:#ead9c2;margin:15px 0}
+.kpi{font-size:28px;font-weight:900;color:var(--b)}
+.list{padding-left:20px}
+.list li{margin:7px 0;line-height:1.4}
+.linkcard{padding:13px;border:1px solid var(--line);border-radius:12px;margin:9px 0;background:#fff}
 </style>
 </head>
 <body>
@@ -53,92 +114,321 @@ small{color:var(--muted)}
 <header>
   <div class="brand">SKM DÉLIVRANCE</div>
   <div class="tag">Identifie • Comprends • Renonce • Prie • Avance</div>
+  <div class="version">VERSION 2.0</div>
 </header>
 
 <main>
 <section id="home">
   <div class="card hero">
-    <div class="chain">⛓️‍💥</div>
+    <div class="icon">⛓️‍💥</div>
     <h1>Briser les cycles de lignée</h1>
-    <p>Un parcours personnel d'accompagnement biblique et pastoral.</p>
-    <button class="btn" onclick="startQuiz()">Commencer mon parcours</button>
-    <button id="resumeBtn" class="btn secondary hidden" onclick="resumeProgress()">Reprendre mon parcours</button>
-    <button class="btn secondary" onclick="show('journey')">Voir le parcours de 7 jours</button>
+    <p>Un parcours biblique et pastoral d’accompagnement personnel, désormais enrichi avec une orientation V2 par besoin.</p>
+    <button class="btn" onclick="show('needs')">COMMENCER MON PARCOURS V2</button>
+    <button id="resumeBtn" class="btn secondary hidden" onclick="resumeV2()">REPRENDRE MON PARCOURS</button>
+    <button class="btn soft" onclick="startDeepQuiz()">Faire directement les 30 questions</button>
   </div>
+
   <div class="card">
-    <span class="pill">V1</span>
-    <h2>Comment ça marche ?</h2>
-    <p>Répondez à 30 questions. L'application repère les thèmes dominants de vos réponses, puis propose une explication, une prière et un parcours.</p>
-    <small>Cette application ne pose pas de diagnostic médical ou psychiatrique et ne confirme pas la présence d'un esprit.</small>
+    <span class="pill">NOUVEAU DANS LA V2</span>
+    <h2>Une orientation avant l’approfondissement</h2>
+    <ul class="list">
+      <li>7 portes d’entrée selon votre besoin du jour.</li>
+      <li>6 questions communes pour affiner l’orientation.</li>
+      <li>Un résultat A à G avec parcours conseillé.</li>
+      <li>Le diagnostic approfondi de 30 questions de la V1 est conservé.</li>
+      <li>Prière, parcours de 7 jours, journal et suivi J+7 / J+21.</li>
+    </ul>
+    <small>Cette application accompagne une démarche personnelle. Elle ne pose pas de diagnostic médical ou psychiatrique et ne confirme pas la présence d’un esprit.</small>
   </div>
 </section>
 
-<section id="quiz" class="hidden">
+<section id="needs" class="hidden">
   <div class="card">
-    <div class="qnum" id="qnum"></div>
-    <div class="progress"><div id="prog"></div></div>
-    <div class="question" id="qtext"></div>
-    <div id="opts"></div>
-    <div style="display:flex;gap:10px;margin-top:14px">
-      <button class="btn secondary" style="flex:1" onclick="prevQuestion()">← Précédent</button>
-      <button class="btn secondary" style="flex:1" onclick="saveProgress()">Sauvegarder</button>
+    <span class="pill">V2 • ÉTAPE 1</span>
+    <h2>Quel est ton besoin aujourd’hui ?</h2>
+    <p>Choisis la situation qui correspond le mieux à ce que tu traverses maintenant.</p>
+
+    <button class="option" onclick="chooseNeed('A')"><b>A.</b> Des situations se répètent dans ma famille ou ma lignée.</button>
+    <button class="option" onclick="chooseNeed('B')"><b>B.</b> Je veux renoncer à des pratiques, engagements ou influences du passé.</button>
+    <button class="option" onclick="chooseNeed('C')"><b>C.</b> Je veux me libérer d’une habitude ou d’une dépendance.</button>
+    <button class="option" onclick="chooseNeed('D')"><b>D.</b> Je porte des blessures et j’ai besoin de restauration.</button>
+    <button class="option" onclick="chooseNeed('E')"><b>E.</b> Je traverse des peurs, oppressions ressenties ou cauchemars.</button>
+    <button class="option" onclick="chooseNeed('F')"><b>F.</b> Je veux grandir dans mon identité, ma foi et ma stabilité.</button>
+    <button class="option" onclick="chooseNeed('G')"><b>G.</b> J’ai besoin d’un accompagnement pastoral plus approfondi.</button>
+
+    <button class="btn secondary" onclick="show('home')">Retour</button>
+  </div>
+</section>
+
+<section id="quickQuiz" class="hidden">
+  <div class="card">
+    <span class="pill">V2 • ÉTAPE 2</span>
+    <div class="qnum" id="quickNum"></div>
+    <div class="progress"><div id="quickProg"></div></div>
+    <div class="question" id="quickText"></div>
+    <div id="quickOptions"></div>
+    <div class="grid">
+      <button class="btn secondary" onclick="quickPrev()">← Précédent</button>
+      <button class="btn secondary" onclick="saveV2()">Sauvegarder</button>
     </div>
   </div>
 </section>
 
-<section id="results" class="hidden">
+<section id="orientation" class="hidden">
   <div class="card">
+    <span class="pill">V2 • ORIENTATION</span>
+    <h2>Ton orientation personnelle</h2>
+    <div id="orientationContent"></div>
+    <button class="btn" onclick="show('pathway')">COMMENCER MON PARCOURS</button>
+    <button class="btn secondary" onclick="startDeepQuiz()">Approfondir avec les 30 questions</button>
+    <button class="btn secondary" onclick="saveV2()">ENREGISTRER POUR PLUS TARD</button>
+    <button class="btn soft" onclick="shareOrientation()">Partager mon orientation</button>
+  </div>
+</section>
+
+<section id="deepQuiz" class="hidden">
+  <div class="card">
+    <span class="pill">APPROFONDISSEMENT • 30 QUESTIONS</span>
+    <div class="qnum" id="deepNum"></div>
+    <div class="progress"><div id="deepProg"></div></div>
+    <div class="question" id="deepText"></div>
+    <div id="deepOptions"></div>
+    <div class="grid">
+      <button class="btn secondary" onclick="deepPrev()">← Précédent</button>
+      <button class="btn secondary" onclick="saveDeep()">Sauvegarder</button>
+    </div>
+  </div>
+</section>
+
+<section id="deepResults" class="hidden">
+  <div class="card">
+    <span class="pill">BILAN APPROFONDI</span>
     <h2>Votre parcours personnel</h2>
-    <p id="summary"></p>
-    <div id="resultBars"></div>
-    <button class="btn" onclick="showPrayer()">Voir ma prière personnalisée</button>
-    <button class="btn secondary" onclick="show('journey')">Commencer le parcours de 7 jours</button>
-    <button class="btn secondary" onclick="shareResults()">Partager mon résultat</button>
+    <p id="deepSummary"></p>
+    <div id="deepBars"></div>
+    <button class="btn" onclick="show('prayer')">Voir ma prière personnalisée</button>
+    <button class="btn secondary" onclick="show('pathway')">Commencer mon parcours</button>
+    <button class="btn secondary" onclick="shareDeep()">Partager mon résultat</button>
     <button class="btn secondary" onclick="downloadReport()">Télécharger mon bilan</button>
+  </div>
+</section>
+
+<section id="pathway" class="hidden">
+  <div class="card">
+    <span class="pill">MON PARCOURS</span>
+    <h2 id="pathTitle">Parcours personnel</h2>
+    <div id="pathIntro"></div>
+    <div id="days"></div>
+    <div class="sep"></div>
+    <h3>Mon engagement personnel</h3>
+    <textarea id="journal" placeholder="Écrivez ici ce que vous décidez, ce que vous comprenez, vos prières et vos progrès..."></textarea>
+    <button class="btn" onclick="saveJournal()">Enregistrer mon journal</button>
+    <button class="btn secondary" onclick="show('followup')">Voir mon suivi J+7 / J+21</button>
   </div>
 </section>
 
 <section id="prayer" class="hidden">
   <div class="card">
-    <h2>Ma prière personnalisée</h2>
+    <span class="pill">PRIÈRE PERSONNALISÉE</span>
+    <h2>Ma prière</h2>
     <div id="prayerText"></div>
     <blockquote>« Si donc le Fils vous affranchit, vous serez réellement libres. » — Jean 8:36</blockquote>
     <button class="btn" onclick="copyPrayer()">Copier ma prière</button>
     <button class="btn secondary" onclick="sharePrayer()">Partager ma prière</button>
-    <button class="btn secondary" onclick="show('journey')">Continuer</button>
+    <button class="btn soft" onclick="show('pathway')">Continuer mon parcours</button>
   </div>
 </section>
 
-<section id="journey" class="hidden">
+<section id="book" class="hidden">
   <div class="card">
-    <h2>Mon parcours de 7 jours</h2>
-    <div id="days"></div>
-    <h3>Mon engagement</h3>
-    <textarea id="journal" placeholder="Écrivez ici votre engagement personnel..."></textarea>
-    <button class="btn" onclick="saveJournal()">Enregistrer sur cet appareil</button>
-    <button class="btn secondary" onclick="clearJournal()">Effacer le journal</button>
-    <button class="btn secondary" onclick="resetApp()">Recommencer tout le parcours</button>
+    <span class="pill">LE LIVRE</span>
+    <h2>Briser les cycles de lignée</h2>
+    <p>Cette application complète la démarche d’enseignement et d’accompagnement autour des cycles familiaux, de la renonciation, de la restauration, de l’identité et de la marche chrétienne.</p>
+    <blockquote>Lire, comprendre, prier, décider, puis mettre en pratique.</blockquote>
+    <button class="btn secondary" onclick="show('needs')">Commencer mon accompagnement</button>
   </div>
 </section>
 
-<section id="help" class="hidden">
- <div class="card">
-  <h2>Accompagnement</h2>
-  <p>Si vous traversez une situation qui vous dépasse, ne restez pas seul. Parlez-en à une personne de confiance, à un responsable pastoral qualifié et, si nécessaire, à un professionnel de santé.</p>
-  <button class="btn secondary" onclick="show('home')">Retour à l'accueil</button>
- </div>
+<section id="followup" class="hidden">
+  <div class="card">
+    <span class="pill">SUIVI</span>
+    <h2>J+7 et J+21</h2>
+    <p>Le but du suivi est de constater les progrès, les difficultés encore présentes et les décisions à consolider.</p>
+
+    <div class="linkcard">
+      <h3>Point J+7</h3>
+      <p>Qu’est-ce qui a changé depuis le début du parcours ? Qu’est-ce qui reste difficile ?</p>
+      <button class="btn secondary" onclick="markFollowup('j7')">Marquer J+7 comme fait</button>
+    </div>
+
+    <div class="linkcard">
+      <h3>Point J+21</h3>
+      <p>Quelles nouvelles habitudes sont devenues plus stables ? Quelle prochaine étape dois-tu poser ?</p>
+      <button class="btn secondary" onclick="markFollowup('j21')">Marquer J+21 comme fait</button>
+    </div>
+
+    <div id="followupState" class="success"></div>
+  </div>
+</section>
+
+<section id="more" class="hidden">
+  <div class="card">
+    <span class="pill">PLUS</span>
+    <h2>Outils et aide</h2>
+    <button class="btn secondary" onclick="show('book')">Le livre</button>
+    <button class="btn secondary" onclick="show('prayer')">Mes prières</button>
+    <button class="btn secondary" onclick="show('followup')">Suivi J+7 / J+21</button>
+    <button class="btn secondary" onclick="installHelp()">Installer l’application sur mon iPhone</button>
+    <button class="btn danger" onclick="resetApp()">Recommencer tout le parcours</button>
+  </div>
+
+  <div class="card">
+    <h2>Accompagnement</h2>
+    <p>Si une peur, une détresse ou une expérience devient envahissante, il est important de ne pas rester seul : parlez-en à une personne de confiance, à un responsable pastoral qualifié et, si nécessaire, à un professionnel de santé.</p>
+  </div>
+</section>
+
+<section id="urgent" class="hidden">
+  <div class="card">
+    <h2>Besoin d’aide immédiate</h2>
+    <p>Vous avez indiqué craindre de vous faire du mal, de faire du mal à quelqu’un ou de perdre totalement le contrôle.</p>
+    <div class="alert">Ne restez pas seul. Contactez immédiatement une personne de confiance et les services d’urgence de votre pays si le danger est immédiat.</div>
+    <button class="btn secondary" onclick="show('home')">Retour à l’accueil</button>
+  </div>
 </section>
 </main>
 
 <nav class="nav">
-  <button onclick="show('home')">Accueil</button>
-  <button onclick="startQuiz()">Diagnostic</button>
-  <button onclick="show('journey')">7 jours</button>
-  <button onclick="show('help')">Aide</button>
+  <button onclick="show('home')"><span>⌂</span>Accueil</button>
+  <button onclick="show('pathway')"><span>🧭</span>Mon parcours</button>
+  <button onclick="show('book')"><span>📖</span>Le livre</button>
+  <button onclick="show('prayer')"><span>🙏</span>Prières</button>
+  <button onclick="show('more')"><span>•••</span>Plus</button>
 </nav>
 </div>
 
 <script>
+const needData = {
+ A:{title:"Schémas familiaux répétitifs", verse:"Romains 12:2", intro:"Identifier ce qui se répète, discerner ce qui vous appartient réellement et construire de nouvelles décisions."},
+ B:{title:"Renonciation et engagements du passé", verse:"Actes 19:18-19", intro:"Faire le point sur ce à quoi vous avez personnellement participé ou consenti, puis poser une décision claire de renonciation."},
+ C:{title:"Habitudes et dépendances", verse:"1 Corinthiens 10:13", intro:"Repérer les déclencheurs, rechercher l’aide utile et remplacer progressivement l’ancienne habitude par une nouvelle construction."},
+ D:{title:"Blessures et restauration", verse:"Psaume 147:3", intro:"Nommer les blessures, avancer vers le pardon sans nier ce qui s’est passé et reconstruire progressivement."},
+ E:{title:"Peurs, oppression ressentie et cauchemars", verse:"2 Timothée 1:7", intro:"Nommer les peurs sans leur donner toute l’autorité sur votre identité, prier et rechercher un accompagnement adapté si elles deviennent envahissantes."},
+ F:{title:"Identité et croissance", verse:"Éphésiens 4:22-24", intro:"Renouveler la manière de penser, consolider votre identité en Christ et développer de nouvelles habitudes spirituelles."},
+ G:{title:"Accompagnement pastoral approfondi", verse:"Proverbes 11:14", intro:"Ne pas porter seul ce qui vous dépasse. Organiser un accompagnement pastoral structuré et, lorsque nécessaire, demander aussi une aide professionnelle adaptée."}
+};
+
+const quickQuestions = [
+ {q:"Depuis combien de temps cette situation te préoccupe-t-elle ?", opts:[["Moins d’un mois",1],["Quelques mois",2],["Plus d’un an",3],["Depuis très longtemps",4]]},
+ {q:"Cette situation revient-elle malgré tes efforts pour changer ?", opts:[["Rarement",1],["Parfois",2],["Souvent",3],["Presque toujours",4]]},
+ {q:"Cette situation touche-t-elle aussi d’autres membres de ta famille ?", opts:[["Non",0],["Je ne sais pas",1],["Quelques personnes",2],["Plusieurs générations",4]]},
+ {q:"As-tu déjà essayé une démarche de prière, de conseil ou d’accompagnement ?", opts:[["Non",0],["Un peu",1],["Oui, plusieurs fois",2],["Oui, mais sans stabilité durable",3]]},
+ {q:"Cette situation affecte-t-elle fortement ta paix, tes relations, ton sommeil, ton travail ou ta vie quotidienne ?", opts:[["Peu",1],["Modérément",2],["Beaucoup",3],["Très fortement",4]]},
+ {q:"Es-tu prêt aujourd’hui à poser une décision concrète et à suivre un parcours pendant plusieurs jours ?", opts:[["Oui",4],["Je pense que oui",3],["J’hésite encore",2],["Pas encore",1]]}
+];
+
+let quickIndex=0, quickAnswers=[], selectedNeed=null;
+
+function show(id){
+ document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+ const target=document.getElementById(id);
+ if(target) target.classList.remove("hidden");
+ if(id==="pathway") renderPathway();
+ if(id==="prayer") renderPrayer();
+ if(id==="followup") renderFollowup();
+ window.scrollTo(0,0);
+}
+
+function chooseNeed(code){
+ selectedNeed=code;
+ localStorage.setItem("skmV2Need",code);
+ quickIndex=0;
+ quickAnswers=[];
+ show("quickQuiz");
+ renderQuick();
+}
+
+function renderQuick(){
+ document.getElementById("quickNum").textContent=`Question ${quickIndex+1} sur ${quickQuestions.length}`;
+ document.getElementById("quickProg").style.width=(quickIndex/quickQuestions.length*100)+"%";
+ document.getElementById("quickText").textContent=quickQuestions[quickIndex].q;
+ const box=document.getElementById("quickOptions");
+ box.innerHTML="";
+ quickQuestions[quickIndex].opts.forEach(([label,score])=>{
+   const b=document.createElement("button");
+   b.className="option";
+   b.textContent=label;
+   b.onclick=()=>quickAnswer(label,score);
+   box.appendChild(b);
+ });
+}
+
+function quickAnswer(label,score){
+ quickAnswers[quickIndex]={label,score};
+ quickIndex++;
+ if(quickIndex<quickQuestions.length) renderQuick();
+ else finishQuick();
+}
+
+function quickPrev(){
+ if(quickIndex<=0){
+   show("needs");
+   return;
+ }
+ quickIndex--;
+ quickAnswers=quickAnswers.slice(0,quickIndex);
+ renderQuick();
+}
+
+function finishQuick(){
+ selectedNeed=selectedNeed||localStorage.getItem("skmV2Need")||"F";
+ const total=quickAnswers.reduce((s,a)=>s+(a?.score||0),0);
+ const max=23;
+ const intensity=Math.round(total/max*100);
+ const level=intensity>=72?"accompagnement soutenu":intensity>=45?"parcours structuré":"parcours de consolidation";
+ const data=needData[selectedNeed];
+ const result={need:selectedNeed,intensity,level,answers:quickAnswers,createdAt:new Date().toISOString()};
+ localStorage.setItem("skmV2Orientation",JSON.stringify(result));
+ localStorage.removeItem("skmV2Progress");
+
+ document.getElementById("orientationContent").innerHTML=`
+   <p><b>Axe conseillé :</b> ${data.title}</p>
+   <blockquote>${data.intro}<br><small>Repère biblique : ${data.verse}</small></blockquote>
+   <div class="result-row">
+     <div class="label"><span>Niveau d’accompagnement suggéré</span><span>${intensity}%</span></div>
+     <div class="bar"><div class="fill" style="width:${intensity}%"></div></div>
+   </div>
+   <p>Orientation : <b>${level}</b>.</p>
+   <small>Ce pourcentage correspond uniquement à tes réponses dans l’outil d’orientation. Il ne s’agit pas d’un diagnostic médical, psychologique ou spirituel.</small>`;
+
+ updateResumeButton();
+ show("orientation");
+}
+
+function saveV2(){
+ localStorage.setItem("skmV2Progress",JSON.stringify({selectedNeed,quickIndex,quickAnswers}));
+ updateResumeButton();
+ alert("Votre parcours V2 a été enregistré sur cet appareil.");
+}
+
+function resumeV2(){
+ const p=JSON.parse(localStorage.getItem("skmV2Progress")||"null");
+ if(!p){
+   show("needs");
+   return;
+ }
+ selectedNeed=p.selectedNeed||localStorage.getItem("skmV2Need");
+ quickIndex=p.quickIndex||0;
+ quickAnswers=p.quickAnswers||[];
+ show("quickQuiz");
+ renderQuick();
+}
+
+function updateResumeButton(){
+ const b=document.getElementById("resumeBtn");
+ if(b) b.classList.toggle("hidden",!localStorage.getItem("skmV2Progress"));
+}
+
 const cats = {
  C1:"Cycles familiaux répétitifs",
  C2:"Liens / engagements anciens",
@@ -149,7 +439,8 @@ const cats = {
  C7:"Mort, deuil et peur de la mort",
  C8:"Besoin d'accompagnement approfondi"
 };
-const questions = [
+
+const deepQuestions = [
 ["Le même type de difficulté existe-t-il chez plusieurs membres de votre famille ?",{C1:3}],
 ["Avez-vous constaté qu’un même problème revient sur plusieurs générations ?",{C1:3,C2:1}],
 ["Avez-vous vécu une situation que votre père ou votre mère avait déjà vécue ?",{C1:3}],
@@ -181,210 +472,460 @@ const questions = [
 ["Certaines peurs, pensées ou expériences vous empêchent-elles fortement de mener votre vie quotidienne ?",{C8:3}],
 ["Avez-vous actuellement peur de vous faire du mal, de faire du mal à quelqu’un ou de perdre totalement le contrôle ?",{CRIT:1}]
 ];
-const choices=[["Oui",1],["Parfois",2/3],["Je ne sais pas",1/3],["Non",0]];
-let i=0, scores={}, answers=[];
-function resetScores(){scores={C1:0,C2:0,C3:0,C4:0,C5:0,C6:0,C7:0,C8:0};}
-function show(id){
- document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
- document.getElementById(id).classList.remove("hidden");
- if(id==="journey") renderDays();
- window.scrollTo(0,0);
-}
-function startQuiz(){i=0;answers=[];resetScores();show("quiz");renderQ();}
-function renderQ(){
- const [q]=questions[i];
- document.getElementById("qnum").textContent=`Question ${i+1} sur ${questions.length}`;
- document.getElementById("prog").style.width=((i)/questions.length*100)+"%";
- document.getElementById("qtext").textContent=q;
- const box=document.getElementById("opts"); box.innerHTML="";
- choices.forEach(([label,m])=>{
-  const b=document.createElement("button"); b.className="option"; b.textContent=label;
-  b.onclick=()=>answer(label,m); box.appendChild(b);
- });
-}
-function answer(label,mult){
- const weights=questions[i][1]; answers.push(label);
- if(weights.CRIT && label==="Oui"){
-   show("help");
-   document.querySelector("#help .card").innerHTML=`
-   <h2>Besoin d'aide immédiate</h2>
-   <p>Vous avez indiqué craindre de vous faire du mal, de faire du mal à quelqu'un ou de perdre totalement le contrôle. Ne restez pas seul. Contactez maintenant une personne de confiance et un professionnel de santé ou les services d'urgence de votre pays si le danger est immédiat.</p>
-   <button class="btn secondary" onclick="show('home')">Retour à l'accueil</button>`;
-   return;
- }
- for(const [c,w] of Object.entries(weights)){ if(c!=="CRIT") scores[c]+=w*mult; }
- i++; if(i<questions.length) renderQ(); else finish();
-}
-function finish(){
- const max={C1:15,C2:13,C3:15,C4:14,C5:12,C6:13,C7:8,C8:5};
- const pct={}; Object.keys(scores).forEach(c=>pct[c]=Math.min(100,Math.round(scores[c]/max[c]*100)));
- const ordered=Object.entries(pct).sort((a,b)=>b[1]-a[1]);
- document.getElementById("summary").innerHTML=`Votre axe principal est <b>${cats[ordered[0][0]]}</b>. Les pourcentages ci-dessous représentent uniquement votre auto-évaluation à partir de vos réponses.`;
- const rb=document.getElementById("resultBars"); rb.innerHTML="";
- ordered.slice(0,5).forEach(([c,p])=>{
-  rb.innerHTML+=`<div class="result-row"><div class="label"><span>${cats[c]}</span><span>${p}%</span></div><div class="bar"><div class="fill" style="width:${p}%"></div></div></div>`;
- });
- localStorage.setItem("skmScores",JSON.stringify({scores,pct,ordered}));
- localStorage.removeItem("skmProgress");
- updateResumeButton();
- show("results");
-}
-function showPrayer(){
- const saved=JSON.parse(localStorage.getItem("skmScores")||"{}");
- const top=(saved.ordered||[]).filter(x=>x[1]>=40).slice(0,3).map(x=>x[0]);
- let parts=[
- "Seigneur Jésus-Christ, je viens devant toi avec sincérité. Je te présente mon histoire, ma famille, mes blessures et les situations que je ne comprends pas encore."
- ];
- if(top.includes("C1")) parts.push("Je refuse de reproduire volontairement les comportements destructeurs qui se sont répétés avant moi. Donne-moi la sagesse de construire un nouveau chemin.");
- if(top.includes("C2")) parts.push("Je renonce personnellement aux engagements que j’ai moi-même pris et qui sont contraires à ma foi.");
- if(top.includes("C3")) parts.push("Je renonce aux pratiques spirituelles auxquelles j’ai personnellement participé et que je ne souhaite plus suivre.");
- if(top.includes("C4")) parts.push("Je ne place plus ma confiance dans un objet, un lieu ou un rite. Je place ma confiance en Jésus-Christ.");
- if(top.includes("C5")) parts.push("Je refuse de laisser les paroles destructrices définir mon identité et mon avenir.");
- if(top.includes("C6")) parts.push("Je reçois ton pardon et je refuse de vivre dans une condamnation permanente.");
- if(top.includes("C7")) parts.push("Je te confie ma peur de la mort et de l’avenir. Remplis-moi de ta paix.");
- if(top.includes("C8")) parts.push("Donne-moi aussi la sagesse et le courage de chercher l’aide humaine et pastorale dont j’ai besoin.");
- parts.push("Je choisis aujourd’hui la vérité, le pardon, la responsabilité et une vie nouvelle. Conduis-moi dans ton chemin. Au nom de Jésus-Christ. Amen.");
- document.getElementById("prayerText").innerHTML=parts.map(p=>`<p>${p}</p>`).join("");
- show("prayer");
-}
-function saveJournal(){
- localStorage.setItem("skmJournal",document.getElementById("journal").value);
- alert("Votre engagement a été enregistré sur cet appareil.");
-}
-document.getElementById("journal").value=localStorage.getItem("skmJournal")||"";
 
-const dayData=[
-["Identifier","Qu'est-ce qui se répète ?"],
-["Comprendre","Où le problème semble-t-il avoir commencé ?"],
-["Pardonner","Identifier les blessures et les personnes concernées."],
-["Renoncer","Abandonner ce à quoi j'ai personnellement participé ou consenti."],
-["Remplacer","Remplacer les anciennes paroles par des vérités bibliques."],
-["Construire","Choisir une nouvelle habitude concrète."],
-["Consécration","Prendre un engagement pour les 21 prochains jours."]
+const deepChoices=[
+["Oui",1],
+["Parfois",2/3],
+["Je ne sais pas",1/3],
+["Non",0]
 ];
 
-function prevQuestion(){
-  if(i<=0){ show("home"); return; }
-  i--;
-  // Rebuild scores from stored answers up to current question
-  const kept=answers.slice(0,i);
-  answers=kept;
-  resetScores();
-  kept.forEach((label,idx)=>{
-    const mult = choices.find(c=>c[0]===label)?.[1] ?? 0;
-    const weights=questions[idx][1];
-    for(const [c,w] of Object.entries(weights)){ if(c!=="CRIT") scores[c]+=w*mult; }
-  });
-  renderQ();
+let deepIndex=0;
+let deepScores={};
+let deepAnswers=[];
+
+function resetDeepScores(){
+ deepScores={C1:0,C2:0,C3:0,C4:0,C5:0,C6:0,C7:0,C8:0};
 }
 
-function saveProgress(){
-  localStorage.setItem("skmProgress", JSON.stringify({i,answers,scores}));
-  alert("Votre parcours a été sauvegardé sur cet appareil.");
-  updateResumeButton();
+function startDeepQuiz(){
+ deepIndex=0;
+ deepAnswers=[];
+ resetDeepScores();
+ show("deepQuiz");
+ renderDeep();
 }
 
-function resumeProgress(){
-  const p=JSON.parse(localStorage.getItem("skmProgress")||"null");
-  if(!p){ startQuiz(); return; }
-  i=p.i||0; answers=p.answers||[]; scores=p.scores||{};
-  show("quiz"); renderQ();
+function renderDeep(){
+ document.getElementById("deepNum").textContent=`Question ${deepIndex+1} sur ${deepQuestions.length}`;
+ document.getElementById("deepProg").style.width=(deepIndex/deepQuestions.length*100)+"%";
+ document.getElementById("deepText").textContent=deepQuestions[deepIndex][0];
+
+ const box=document.getElementById("deepOptions");
+ box.innerHTML="";
+
+ deepChoices.forEach(([label,m])=>{
+  const b=document.createElement("button");
+  b.className="option";
+  b.textContent=label;
+  b.onclick=()=>deepAnswer(label,m);
+  box.appendChild(b);
+ });
 }
 
-function updateResumeButton(){
-  const b=document.getElementById("resumeBtn");
-  if(b) b.classList.toggle("hidden", !localStorage.getItem("skmProgress"));
+function deepAnswer(label,mult){
+ const weights=deepQuestions[deepIndex][1];
+
+ if(weights.CRIT && label==="Oui"){
+   show("urgent");
+   return;
+ }
+
+ deepAnswers[deepIndex]=label;
+
+ for(const [c,w] of Object.entries(weights)){
+   if(c!=="CRIT") deepScores[c]+=w*mult;
+ }
+
+ deepIndex++;
+
+ if(deepIndex<deepQuestions.length) renderDeep();
+ else finishDeep();
 }
 
-function getResultText(){
-  const saved=JSON.parse(localStorage.getItem("skmScores")||"{}");
-  const ord=saved.ordered||[];
-  if(!ord.length) return "Aucun résultat disponible.";
-  const lines=ord.slice(0,3).map(([c,p],idx)=>`${idx+1}. ${cats[c]} — ${p}%`);
-  return `SKM DÉLIVRANCE — Mon bilan personnel\n\n${lines.join("\n")}\n\nCes pourcentages représentent une auto-évaluation issue de mes réponses.`;
-}
+function deepPrev(){
+ if(deepIndex<=0){
+   show("home");
+   return;
+ }
 
-async function shareResults(){
-  const text=getResultText();
-  if(navigator.share){ 
-    try{ await navigator.share({title:"SKM DÉLIVRANCE",text}); }catch(e){}
-  } else {
-    await navigator.clipboard.writeText(text);
-    alert("Votre résultat a été copié. Vous pouvez maintenant le coller dans WhatsApp, SMS ou e-mail.");
+ deepIndex--;
+
+ const kept=deepAnswers.slice(0,deepIndex);
+ deepAnswers=kept;
+ resetDeepScores();
+
+ kept.forEach((label,idx)=>{
+  const mult=deepChoices.find(x=>x[0]===label)?.[1]??0;
+  const weights=deepQuestions[idx][1];
+  for(const [c,w] of Object.entries(weights)){
+    if(c!=="CRIT") deepScores[c]+=w*mult;
   }
+ });
+
+ renderDeep();
 }
 
-function downloadReport(){
-  const text=getResultText();
-  const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="SKM_Delivrance_Mon_Bilan.txt";
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+function saveDeep(){
+ localStorage.setItem("skmDeepProgress",JSON.stringify({deepIndex,deepAnswers,deepScores}));
+ alert("Le questionnaire approfondi a été sauvegardé.");
 }
 
-function getPrayerPlain(){
-  return document.getElementById("prayerText").innerText.trim();
-}
-async function copyPrayer(){
-  const text=getPrayerPlain();
-  if(!text){ showPrayer(); return; }
-  await navigator.clipboard.writeText(text);
-  alert("Votre prière a été copiée.");
-}
-async function sharePrayer(){
-  const text=getPrayerPlain();
-  if(navigator.share){
-    try{ await navigator.share({title:"Ma prière — SKM DÉLIVRANCE",text}); }catch(e){}
-  } else {
-    await navigator.clipboard.writeText(text);
-    alert("La prière a été copiée pour être partagée.");
-  }
+function finishDeep(){
+ const max={C1:15,C2:13,C3:15,C4:14,C5:12,C6:13,C7:8,C8:5};
+ const pct={};
+
+ Object.keys(deepScores).forEach(c=>{
+   pct[c]=Math.min(100,Math.round(deepScores[c]/max[c]*100));
+ });
+
+ const ordered=Object.entries(pct).sort((a,b)=>b[1]-a[1]);
+
+ const need=localStorage.getItem("skmV2Need");
+ const needText=need?needData[need].title:"Non précisé";
+
+ document.getElementById("deepSummary").innerHTML=
+   `Votre besoin V2 : <b>${needText}</b>.<br><br>
+   Votre axe principal dans les 30 questions est <b>${cats[ordered[0][0]]}</b>.`;
+
+ const box=document.getElementById("deepBars");
+ box.innerHTML="";
+
+ ordered.slice(0,5).forEach(([c,p])=>{
+   box.innerHTML+=`
+   <div class="result-row">
+     <div class="label">
+       <span>${cats[c]}</span>
+       <span>${p}%</span>
+     </div>
+     <div class="bar">
+       <div class="fill" style="width:${p}%"></div>
+     </div>
+   </div>`;
+ });
+
+ localStorage.setItem("skmDeepResults",JSON.stringify({pct,ordered,need}));
+ show("deepResults");
 }
 
-function renderDays(){
-  const done=JSON.parse(localStorage.getItem("skmDays")||"[]");
-  const box=document.getElementById("days");
-  if(!box) return;
-  box.innerHTML="";
-  dayData.forEach((d,idx)=>{
-    const completed=done.includes(idx);
-    const div=document.createElement("div");
-    div.className="day"+(completed?" done":"");
-    div.innerHTML=`<div class="badge">${idx+1}</div>
-      <div><b>${d[0]}</b><br><small>${d[1]}</small></div>
-      <button onclick="toggleDay(${idx})">${completed?"Terminé ✓":"Marquer terminé"}</button>`;
-    box.appendChild(div);
-  });
+const pathwayDays = {
+ A:[
+   ["Identifier","Nommer précisément ce qui se répète."],
+   ["Retracer","Repérer quand et comment le schéma apparaît."],
+   ["Distinguer","Séparer les faits, les blessures, les habitudes et les croyances."],
+   ["Pardonner","Travailler le pardon sans nier les faits."],
+   ["Renoncer","Refuser de reproduire volontairement l’ancien schéma."],
+   ["Construire","Choisir une nouvelle réponse concrète."],
+   ["Consacrer","Prendre un engagement pour les 21 prochains jours."]
+ ],
+ B:[
+   ["Inventorier","Lister ce à quoi vous avez personnellement participé."],
+   ["Comprendre","Identifier pourquoi vous l’avez accepté."],
+   ["Décider","Choisir clairement ce que vous ne voulez plus suivre."],
+   ["Renoncer","Formuler une renonciation personnelle et consciente."],
+   ["Remplacer","Remplacer l’ancien repère par une pratique cohérente avec votre foi."],
+   ["Partager","En parler à une personne de confiance si nécessaire."],
+   ["Consacrer","Confirmer votre nouvelle direction."]
+ ],
+ C:[
+   ["Observer","Identifier les déclencheurs."],
+   ["Mesurer","Repérer quand l’habitude est la plus forte."],
+   ["Couper","Réduire les accès et contextes déclencheurs."],
+   ["Remplacer","Choisir une alternative saine et concrète."],
+   ["Soutenir","Demander de l’aide et de la redevabilité."],
+   ["Persévérer","Préparer une réponse aux rechutes ou tentations."],
+   ["Consolider","Fixer un objectif pour les 21 prochains jours."]
+ ],
+ D:[
+   ["Nommer","Mettre des mots sur la blessure."],
+   ["Reconnaître","Identifier l’impact réel sur vos choix."],
+   ["Exprimer","Écrire ce qui a été perdu ou abîmé."],
+   ["Pardonner","Avancer vers le pardon sans minimiser les faits."],
+   ["Protéger","Mettre des limites lorsque c’est nécessaire."],
+   ["Reconstruire","Poser un acte concret de restauration."],
+   ["Espérer","Choisir une nouvelle direction."]
+ ],
+ E:[
+   ["Nommer","Identifier les peurs et quand elles apparaissent."],
+   ["Respirer","Créer un temps de calme et de recul."],
+   ["Vérifier","Distinguer les faits de ce que la peur imagine."],
+   ["Prier","Présenter précisément vos inquiétudes à Dieu."],
+   ["Parler","Partager avec une personne de confiance."],
+   ["Sécuriser","Chercher une aide adaptée si cela envahit la vie quotidienne."],
+   ["Consolider","Noter les progrès et les prochains besoins."]
+ ],
+ F:[
+   ["Identité","Écrire ce que vous croyez de vous-même."],
+   ["Vérité","Comparer ces croyances avec des vérités bibliques."],
+   ["Pensées","Repérer les pensées répétitives qui affaiblissent."],
+   ["Paroles","Changer les paroles prononcées sur vous-même."],
+   ["Habitudes","Choisir une discipline spirituelle simple."],
+   ["Service","Mettre en pratique un don ou une responsabilité."],
+   ["Consécration","Fixer votre engagement pour 21 jours."]
+ ],
+ G:[
+   ["État des lieux","Écrire clairement ce qui vous dépasse."],
+   ["Prioriser","Choisir la difficulté la plus urgente."],
+   ["Conseil","Identifier une personne pastorale qualifiée."],
+   ["Sécurité","Repérer ce qui nécessite aussi une aide professionnelle."],
+   ["Plan","Fixer une prochaine rencontre ou action."],
+   ["Suivi","Noter les progrès et blocages."],
+   ["Continuité","Définir le suivi des 21 prochains jours."]
+ ]
+};
+
+function currentNeed(){
+ return localStorage.getItem("skmV2Need")
+   ||JSON.parse(localStorage.getItem("skmV2Orientation")||"{}").need
+   ||"F";
+}
+
+function renderPathway(){
+ const code=currentNeed();
+ const data=needData[code];
+ const daysData=pathwayDays[code];
+
+ document.getElementById("pathTitle").textContent=data.title;
+
+ document.getElementById("pathIntro").innerHTML=`
+   <blockquote>
+     ${data.intro}<br>
+     <small>Repère biblique : ${data.verse}</small>
+   </blockquote>`;
+
+ const done=JSON.parse(localStorage.getItem("skmDaysV2")||"[]");
+ const box=document.getElementById("days");
+ box.innerHTML="";
+
+ daysData.forEach((d,idx)=>{
+   const completed=done.includes(idx);
+   const div=document.createElement("div");
+   div.className="day"+(completed?" done":"");
+
+   div.innerHTML=`
+     <div class="badge">${idx+1}</div>
+     <div class="grow">
+       <b>${d[0]}</b><br>
+       <small>${d[1]}</small>
+     </div>
+     <button onclick="toggleDay(${idx})">
+       ${completed?"Terminé ✓":"Terminer"}
+     </button>`;
+
+   box.appendChild(div);
+ });
+
+ document.getElementById("journal").value=
+   localStorage.getItem("skmJournalV2")||"";
 }
 
 function toggleDay(idx){
-  let done=JSON.parse(localStorage.getItem("skmDays")||"[]");
-  if(done.includes(idx)) done=done.filter(x=>x!==idx); else done.push(idx);
-  localStorage.setItem("skmDays",JSON.stringify(done));
-  renderDays();
+ let done=JSON.parse(localStorage.getItem("skmDaysV2")||"[]");
+
+ if(done.includes(idx)){
+   done=done.filter(x=>x!==idx);
+ }else{
+   done.push(idx);
+ }
+
+ localStorage.setItem("skmDaysV2",JSON.stringify(done));
+ renderPathway();
 }
 
-function clearJournal(){
-  if(confirm("Effacer votre journal enregistré sur cet appareil ?")){
-    localStorage.removeItem("skmJournal");
-    document.getElementById("journal").value="";
-  }
+function saveJournal(){
+ localStorage.setItem(
+   "skmJournalV2",
+   document.getElementById("journal").value
+ );
+ alert("Votre journal a été enregistré sur cet appareil.");
+}
+
+function renderPrayer(){
+ const code=currentNeed();
+
+ const custom={
+ A:"Seigneur Jésus-Christ, donne-moi la lumière pour reconnaître les schémas qui se répètent dans mon histoire. Je refuse de reproduire volontairement ce qui détruit. Donne-moi la sagesse de construire de nouvelles réponses, dans la vérité, le pardon et la responsabilité.",
+ B:"Seigneur Jésus-Christ, je te présente ce à quoi j’ai personnellement participé ou consenti et que je ne veux plus suivre. Je renonce à ce qui est contraire à ma foi et je choisis désormais de placer ma confiance en toi.",
+ C:"Seigneur Jésus-Christ, montre-moi les déclencheurs de mes habitudes destructrices. Donne-moi la force de demander de l’aide, de couper ce qui m’entraîne vers l’ancien comportement et de construire de nouvelles habitudes.",
+ D:"Seigneur Jésus-Christ, je te présente mes blessures. Aide-moi à ne pas nier ce qui s’est passé, à avancer vers le pardon avec sagesse et à reconstruire ce qui peut l’être.",
+ E:"Seigneur Jésus-Christ, je te confie mes peurs et mes nuits difficiles. Aide-moi à distinguer les faits de ce que la peur imagine, à chercher du soutien lorsque j’en ai besoin et à marcher dans ta paix.",
+ F:"Seigneur Jésus-Christ, renouvelle mon intelligence. Apprends-moi à voir mon identité à la lumière de ta Parole, à changer mes pensées et mes paroles, et à développer une vie stable et féconde.",
+ G:"Seigneur Jésus-Christ, donne-moi l’humilité et la sagesse de ne pas porter seul ce qui me dépasse. Conduis-moi vers les bonnes personnes et vers l’aide appropriée pour avancer de manière sûre et durable."
+ };
+
+ document.getElementById("prayerText").innerHTML=`
+   <p>${custom[code]}</p>
+   <p>
+     Je choisis aujourd’hui la vérité, le pardon, la responsabilité et une vie nouvelle.
+     Conduis-moi dans ton chemin.
+     Au nom de Jésus-Christ. Amen.
+   </p>`;
+}
+
+async function copyPrayer(){
+ renderPrayer();
+ const text=document.getElementById("prayerText").innerText.trim();
+
+ try{
+   await navigator.clipboard.writeText(text);
+   alert("Votre prière a été copiée.");
+ }catch(e){
+   alert(text);
+ }
+}
+
+async function sharePrayer(){
+ renderPrayer();
+ const text=document.getElementById("prayerText").innerText.trim();
+
+ if(navigator.share){
+   try{
+     await navigator.share({
+       title:"Ma prière — SKM DÉLIVRANCE V2",
+       text
+     });
+   }catch(e){}
+ }else{
+   try{
+     await navigator.clipboard.writeText(text);
+     alert("La prière a été copiée.");
+   }catch(e){}
+ }
+}
+
+function orientationText(){
+ const o=JSON.parse(localStorage.getItem("skmV2Orientation")||"null");
+
+ if(!o){
+   return "Aucune orientation V2 enregistrée.";
+ }
+
+ const d=needData[o.need];
+
+ return `SKM DÉLIVRANCE V2
+
+Orientation : ${d.title}
+Intensité déclarée : ${o.intensity}%
+Niveau suggéré : ${o.level}
+Repère biblique : ${d.verse}
+
+Cette orientation est issue de mes réponses et ne constitue pas un diagnostic.`;
+}
+
+async function shareOrientation(){
+ const text=orientationText();
+
+ if(navigator.share){
+   try{
+     await navigator.share({
+       title:"Mon orientation — SKM DÉLIVRANCE V2",
+       text
+     });
+   }catch(e){}
+ }else{
+   await navigator.clipboard.writeText(text);
+   alert("Votre orientation a été copiée.");
+ }
+}
+
+function deepTextReport(){
+ const r=JSON.parse(localStorage.getItem("skmDeepResults")||"{}");
+ const ord=r.ordered||[];
+
+ if(!ord.length){
+   return "Aucun bilan approfondi disponible.";
+ }
+
+ return "SKM DÉLIVRANCE V2 — Bilan approfondi\n\n"
+   +ord.slice(0,5)
+     .map(([c,p],i)=>`${i+1}. ${cats[c]} — ${p}%`)
+     .join("\n")
+   +"\n\nCes pourcentages représentent une auto-évaluation issue de mes réponses.";
+}
+
+async function shareDeep(){
+ const text=deepTextReport();
+
+ if(navigator.share){
+   try{
+     await navigator.share({
+       title:"Mon bilan — SKM DÉLIVRANCE V2",
+       text
+     });
+   }catch(e){}
+ }else{
+   await navigator.clipboard.writeText(text);
+   alert("Votre bilan a été copié.");
+ }
+}
+
+function downloadReport(){
+ const text=orientationText()+"\n\n"+deepTextReport();
+
+ const blob=new Blob([text],{
+   type:"text/plain;charset=utf-8"
+ });
+
+ const a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);
+ a.download="SKM_Delivrance_V2_Mon_Bilan.txt";
+
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+
+ setTimeout(()=>{
+   URL.revokeObjectURL(a.href);
+ },1000);
+}
+
+function markFollowup(key){
+ const f=JSON.parse(localStorage.getItem("skmFollowup")||"{}");
+ f[key]=new Date().toISOString();
+ localStorage.setItem("skmFollowup",JSON.stringify(f));
+ renderFollowup();
+}
+
+function renderFollowup(){
+ const f=JSON.parse(localStorage.getItem("skmFollowup")||"{}");
+
+ const fmt=x=>
+   x
+   ? new Date(x).toLocaleDateString("fr-FR")
+   : "non réalisé";
+
+ document.getElementById("followupState").innerHTML=`
+   <b>État du suivi</b><br>
+   J+7 : ${fmt(f.j7)}<br>
+   J+21 : ${fmt(f.j21)}`;
+}
+
+function installHelp(){
+ alert(
+   "Sur iPhone : ouvrez le bouton Partager de Safari, puis choisissez « Sur l’écran d’accueil » et confirmez avec « Ajouter »."
+ );
 }
 
 function resetApp(){
-  if(confirm("Recommencer le parcours depuis le début ? Les résultats, la progression et le journal seront effacés.")){
-    ["skmScores","skmProgress","skmJournal","skmDays"].forEach(k=>localStorage.removeItem(k));
-    document.getElementById("journal").value="";
-    updateResumeButton();
-    renderDays();
-    show("home");
-  }
+ if(confirm(
+   "Recommencer tout le parcours ? Les réponses, résultats, journal et suivi enregistrés sur cet appareil seront effacés."
+ )){
+   [
+     "skmV2Need",
+     "skmV2Orientation",
+     "skmV2Progress",
+     "skmDeepProgress",
+     "skmDeepResults",
+     "skmDaysV2",
+     "skmJournalV2",
+     "skmFollowup"
+   ].forEach(k=>localStorage.removeItem(k));
+
+   selectedNeed=null;
+   quickIndex=0;
+   quickAnswers=[];
+   deepIndex=0;
+   deepAnswers=[];
+   resetDeepScores();
+   updateResumeButton();
+   show("home");
+ }
 }
 
+selectedNeed=localStorage.getItem("skmV2Need");
 updateResumeButton();
-renderDays();
+renderPrayer();
+renderFollowup();
 </script>
 </body>
 </html>
